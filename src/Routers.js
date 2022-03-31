@@ -10,6 +10,7 @@ import Streets from "./app/dashboard/admin/street/Streets"
 import CreateCity from "./app/dashboard/admin/city/CreateCity"
 import CreateStreet from "./app/dashboard/admin/street/CreateStreet"
 
+import HelloWorld from './app/dashboard/user/HelloWorld';
 
 
 // import Private Route
@@ -48,6 +49,8 @@ function Routers() {
                 path="/streets/create" exact 
                 element={<PrivateRoute><CreateStreet/></PrivateRoute>}
             />
+
+            <Route path="/user" exact element={<HelloWorld/>}/>
         </Routes>
     </Router>
   )

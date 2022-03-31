@@ -39,6 +39,8 @@ const Signin = () => {
                     history("/")
                 }else if(res.user.role === "SUPER_ADMIN"){
                     history("/cities")
+                }else {
+                    history("/user")
                 }
             }
         }).catch(err => toastr.error(err, 'Server error', {
