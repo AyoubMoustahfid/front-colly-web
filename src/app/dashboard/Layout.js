@@ -31,14 +31,14 @@ function Layout({children}) {
             }
         }).then(res => res.json())
         .then(res => {
+            console.log('res', res)
             if(res.error){
                 return
             }
-
-            localStorage.removeItem('jwt-info')
+            localStorage.clear()
             history('/signin')
         })
-        .catch(err => console.error('Error on Server'))
+        .catch()
     }
 
     
@@ -110,9 +110,9 @@ function Layout({children}) {
                                         </li>
                                        
                                     </ul>
-                                    <form className="d-flex">
-                                        <button className="btn btn-outline-success" type="submit" onClick={() => signout()}>Log Out</button>
-                                    </form>
+                                    <div className="d-flex">
+                                        <button className="btn bg-green-500 text-white font-semibold" type="submit" onClick={signout}>Log Out</button>
+                                    </div>
                                 </div>
                             </div>
                         </nav>    
