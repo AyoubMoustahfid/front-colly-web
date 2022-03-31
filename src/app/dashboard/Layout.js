@@ -40,6 +40,7 @@ function Layout({children}) {
         })
         .catch(err => console.error('Error on Server'))
     }
+
     
   return (
     <div className="container-fluid" style={{height: "100vh"}}>
@@ -52,7 +53,7 @@ function Layout({children}) {
                     {user.role === "ADMIN" ? (
                         <Link 
                             to='/'
-                            className={`flex-row p-2 items-center justify-center  rounded my-2 text-center  ${location.pathname === "/" ? 'bg-green-400' : 'bg-blue-400'}`}
+                            className={`flex-row p-2 items-center justify-center  rounded my-2 text-center  ${location &&  location.pathname === "/" ? 'bg-green-400' : 'bg-blue-400'}`}
                         >
                             <i className={`bi bi-window`} style={{fontSize: "1rem", color: "white", fontWeight: '500'}}></i>
                             {width_page >= 965 && (
@@ -65,7 +66,7 @@ function Layout({children}) {
                         <Fragment>
                             <Link 
                                 to="/cities"
-                                className={`flex-row p-2 items-center justify-center  rounded my-2 text-center  ${(location.pathname === "/cities" || location.pathname === "/cities/create") ? 'bg-green-400' : 'bg-blue-400'}`}
+                                className={`flex-row p-2 items-center justify-center  rounded my-2 text-center  ${location && (location.pathname === "/cities" || location.pathname === "/cities/create") ? 'bg-green-400' : 'bg-blue-400'}`}
                             >
                                 <i className={`bi bi-signpost text-base text-white `}></i>
                                 {width_page >= 965 && (
@@ -76,7 +77,7 @@ function Layout({children}) {
                             </Link> 
                             <Link 
                                 to="/streets"
-                                className={`flex-row p-2 items-center justify-center  rounded my-2 text-center  ${(location.pathname === "/streets" || location.pathname === "/streets/create") ? 'bg-green-400' : 'bg-blue-400'}`}
+                                className={`flex-row p-2 items-center justify-center  rounded my-2 text-center  ${location && (location.pathname === "/streets" || location.pathname === "/streets/create") ? 'bg-green-400' : 'bg-blue-400'}`}
                             >
                                 <i className={`bi bi-signpost-split`} style={{fontSize: "1rem", color: "white", fontWeight: '500'}}></i>
                                 {width_page >= 965 && (
@@ -95,17 +96,17 @@ function Layout({children}) {
                     <div className="col-12 px-0">
                         <nav className="navbar navbar-expand-lg navbar-light bg-light">
                             <div className="container-fluid">
-                                <Link className="navbar-brand" >Navbar</Link>
+                                <Link className="navbar-brand" to="/">Navbar</Link>
                                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span className="navbar-toggler-icon"></span>
                                 </button>
                                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li className="nav-item">
-                                            <Link className="nav-link active" aria-current="page" >Home</Link>
+                                            <Link className="nav-link active" aria-current="page"to="/" >Home</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link className="nav-link" >Link</Link>
+                                            <Link className="nav-link" to="/">Link</Link>
                                         </li>
                                        
                                     </ul>
